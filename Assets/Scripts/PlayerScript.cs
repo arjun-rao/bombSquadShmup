@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaddleScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour {
     private float     xPos;
-    public float      paddleSpeed = .05f;
+    public float      speed = .05f;
     public float      leftWall, rightWall;
 
     // Start is called before the first frame update
@@ -16,13 +16,13 @@ public class PaddleScript : MonoBehaviour {
     void Update() {
         if (Input.GetKey(KeyCode.LeftArrow)) {
             if (xPos > leftWall) {
-                xPos -= paddleSpeed;
+                xPos -= speed;
             }
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) {
             if (xPos < rightWall) {
-                xPos += paddleSpeed;
+                xPos += speed;
             }
         }
 
