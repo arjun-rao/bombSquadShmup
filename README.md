@@ -1,3 +1,3 @@
-# Breakin
+# ATLS 4(5)140 Journey
 
-Breakin project for ATLS 4(5)140 Game Development
+introductory projects for ATLS 4(5)140 Game Development
