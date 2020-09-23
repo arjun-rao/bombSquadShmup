@@ -3,4 +3,4 @@
 SHMUP Remix for Game Development Class.
 
 
-Link to Process Documentation: [Here](/process)
+Link to Process Documentation: [Here](https://github.com/arjun-rao/bombSquadShmup/tree/master/Process)
