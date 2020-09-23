@@ -1,3 +1,6 @@
-# ATLS 4(5)140 Journey
+# ATLS 4(5)140 SHMUP Remix
 
-introductory projects for ATLS 4(5)140 Game Development
+SHMUP Remix for Game Development Class.
+
+
+Link to Process Documentation: [Here](/process)
