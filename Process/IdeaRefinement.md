@@ -41,7 +41,7 @@ The player has the following resources to work with:
 
 ### Rules
 
-The player cannot cross a certain threshold on the map, similarly enemies cannot enter the player's territory, while they can fire across the line of control/boundary. This is implemented as a long trench in the battle field. The main movements allowed for the player are moving in 4 directions (up, down, left, right) and shooting. They also have the ability to use objects on the map using a separate action key - that can be used to throw grandes, open airdrops, etc. 
+The player cannot cross a certain threshold on the map, similarly enemies cannot enter the player's territory, while they can fire across the line of control/boundary. This is implemented as a long trench in the battle field. The main movements allowed for the player are moving in 4 directions (up, down, left, right) and shooting. They also have the ability to use objects on the map using a separate action key - that can be used to throw grandes, open airdrops, etc. The enemies move similar to the player in their own territory, and shoot at the player or the bomb squad. Normal bullets do not penetrate through walls/barriers when they are intact, however barriers weaken over time and eventually get destroyed. Armour behaves similarly. The player must eliminate or keep enemies at bay while the bomb squad diffuses the bomb. Friendly fire is not allowed and the player cannot accidentally shoot at the bomb squad. Players cannot leave the map/playing area. 
 
 
 
