@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
-    private float     xPos;
-    public float      speed = .05f;
-    public float      leftWall, rightWall;
-    public Transform projectile;
+    private float     xPos, yPos;
+    public float      speed = 5f;
+    public Rigidbody2D rb;
+    public Transform projectile, firePoint;
     public KeyCode fireKey;
     public float health = 1f;
     public Image healthBar;
+    private Vector2 _movement;
+    public Animator animator;
+    private float _walking, _defusing;
 
     // Start is called before the first frame update
     void Start()
@@ -19,27 +22,39 @@ public class PlayerScript : MonoBehaviour {
         healthBar.fillAmount = health;
     }
 
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + _movement * (speed * Time.fixedDeltaTime));
+    }
+
     // Update is called once per frame
-    void Update() {
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            if (xPos > leftWall) {
-                xPos -= speed;
-            }
-        }
+    void Update()
+    {
 
-        if (Input.GetKey(KeyCode.RightArrow)) {
-            if (xPos < rightWall) {
-                xPos += speed;
-            }
-        }
+        _movement.x = Input.GetAxisRaw("Horizontal");
+        _movement.y = Input.GetAxisRaw("Vertical");
 
+        if (_movement.y == 0)
+        {
+            _walking = _movement.x == 0 ? 0f : 1f;
+        }
+        else
+        {
+            _walking = _movement.y;
+        }
+        
+        _defusing = Input.GetKey(KeyCode.Z) ? 1f : 0f;
+        animator.SetFloat("Walking", _walking);
+        animator.SetFloat("Defusing", _defusing);
+        animator.SetFloat("Idling", ((_movement.magnitude < 0.01f)&&(_defusing ==0))? 2f: 0f );
+        
+        // Shoot
         if (Input.GetKeyDown(fireKey))
         {
-            Instantiate(this.projectile, new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
+            Instantiate(this.projectile, firePoint.position, Quaternion.identity);
             
         }
         
-        transform.localPosition = new Vector3(xPos, transform.position.y, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

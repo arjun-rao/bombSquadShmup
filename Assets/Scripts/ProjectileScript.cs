@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour
     public float               speed = 2f;
     public int direction;
     private Rigidbody2D        rb;
+    public Transform Explosion;
     
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,9 @@ public class ProjectileScript : MonoBehaviour
         {
            case "Player":
             {
-                Debug.Log("Hit player!");
+                Destroy(this.gameObject);
+                Instantiate(Explosion, this.transform.position, Quaternion.identity);
+                // hit player.
                 break;
             }
            
@@ -55,6 +58,7 @@ public class ProjectileScript : MonoBehaviour
 
             case "enemy":
             {
+                Instantiate(Explosion, this.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
                 break;
