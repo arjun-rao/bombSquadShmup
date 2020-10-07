@@ -330,12 +330,12 @@ MonoBehaviour:
   - {r: 1, g: 0.68315876, b: 0, a: 1}
   - {r: 0.96933126, g: 1, b: 0, a: 1}
   - {r: 0, g: 0.42030418, b: 0.9528302, a: 1}
-  xSpacing: 1.25
-  ySpacing: 0.5
+  xSpacing: 6
+  ySpacing: 2
   xOrigin: -5.5
   yOrigin: 4
-  numRows: 10
-  numColumns: 4
+  numRows: 3
+  numColumns: 1
   speed: 2
   amplitude: 0.5
 --- !u!4 &519625895
