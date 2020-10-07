@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public Transform enemyProjectile;
+    public Transform enemyProjectile, firePoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class EnemyScript : MonoBehaviour
         int i = Random.Range(0, 100);
         if (i > 80)
         {
-            Instantiate(enemyProjectile, transform.position, Quaternion.identity);
+            Instantiate(enemyProjectile, firePoint.position, Quaternion.identity);
         }
     }
 }
