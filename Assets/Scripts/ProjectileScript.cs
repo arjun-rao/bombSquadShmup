@@ -21,7 +21,7 @@ public class ProjectileScript : MonoBehaviour
     private IEnumerator Launch() {
         //yield return new WaitForSeconds(1);
         //rb.AddForce(transform.right * -1);
-        rb.AddForce(transform.up * speed * direction);
+        rb.AddForce(transform.up * (speed * direction));
         yield return null;
     }
 
@@ -31,6 +31,7 @@ public class ProjectileScript : MonoBehaviour
         {
            case "Player":
             {
+                Debug.Log("Hit Player");
                 Destroy(this.gameObject);
                 Instantiate(Explosion, this.transform.position, Quaternion.identity);
                 // hit player.
@@ -40,6 +41,14 @@ public class ProjectileScript : MonoBehaviour
            case "wall":
            {
                Destroy(this.gameObject);
+               break;
+           }
+           
+           case "vehicle":
+           {
+               Destroy(this.gameObject);
+               Instantiate(Explosion, this.transform.position, Quaternion.identity);
+               VehicleScript.S.ReduceHealth();
                break;
            }
         }
@@ -56,10 +65,23 @@ public class ProjectileScript : MonoBehaviour
                 break;
             }
 
+            case "trench":
+            {
+                Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                break;
+            }
+
             case "enemy":
             {
                 Instantiate(Explosion, this.transform.position, Quaternion.identity);
+                EnemyManagerScript.S.AddKill();
                 Destroy(other.gameObject);
+                Destroy(this.gameObject);
+                break;
+            }
+            
+            case "vehicle":
+            {
                 Destroy(this.gameObject);
                 break;
             }

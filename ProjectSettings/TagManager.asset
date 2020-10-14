@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
-  - paddle
-  - brick
   - projectile
   - enemy
   - enemyProjectile
+  - trench
+  - vehicle
+  - bombsquad
+  - health
   layers:
   - Default
   - TransparentFX
@@ -19,14 +21,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Walls
+  - Trench
+  - Enemy
+  - EnemyProjectile
+  - Projectile
+  - Barricade
+  - BombSquad
   - 
   - 
   - 
