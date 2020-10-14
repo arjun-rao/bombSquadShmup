@@ -51,6 +51,15 @@ public class ProjectileScript : MonoBehaviour
                VehicleScript.S.ReduceHealth();
                break;
            }
+           case "bombsquad":
+           {
+               
+               Instantiate(Explosion, this.transform.position, Quaternion.identity);
+               Destroy(other.gameObject);
+               Destroy(this.gameObject);
+               GameManagerScript.S.GameOver();
+               break;
+           }
         }
 
     }

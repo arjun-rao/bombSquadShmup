@@ -57,59 +57,52 @@ public class PlayerScript : MonoBehaviour {
             _walking = _movement.y;
         }
 
-        if (Input.GetKey(KeyCode.Z) && _canDefuse)
+       if (Input.GetKey(KeyCode.Z))
         {
-            _defusing = 1f;
-            _defuseTimer += Time.deltaTime;
-            if (_defuseTimer > 2)
+            if (_canHeal)
             {
-                _defuseTimer = 0;
-                // increase defuse percentage.
-                GameManagerScript.S.Defuse();
-            }
-        }
-        else
-        {
-            _defuseTimer = 0;
-            _defusing = 0f;
-        }
-        
-        if (Input.GetKey(KeyCode.Z) && _canHeal)
-        {
-            _defusing = 1f;
-            _healTimer += Time.deltaTime;
-            if (_healTimer > 2)
-            {
-                _healTimer = 0;
-                // increase health for player percentage.
-                if (health < 1f)
+                _defusing = 1f;
+                _healTimer += Time.deltaTime;
+                if (_healTimer > 2)
                 {
-                    health += 0.3f;
-                    UpdateHealth();
+                    _healTimer = 0;
+                    // increase health for player percentage.
+                    if (health < 1f)
+                    {
+                        health += 0.3f;
+                        UpdateHealth();
+                    }
+
                 }
-                
+            }
+            else if (_canDefuse)
+            {
+                _defusing = 1f;
+                _defuseTimer += Time.deltaTime;
+                if (_defuseTimer > 2)
+                {
+                    _defuseTimer = 0;
+                    // increase defuse percentage.
+                    GameManagerScript.S.Defuse();
+                }
+            }
+            else if (_canRepair)
+            {
+                _defusing = 1f;
+                _repairTimer += Time.deltaTime;
+                if (_repairTimer > 2)
+                {
+                    _repairTimer = 0;
+                    // increase health for vehicle
+                    VehicleScript.S.RepairVehicle();
+
+                }
             }
         }
         else
         {
             _healTimer = 0;
-            _defusing = 0f;
-        }
-        
-        if (Input.GetKey(KeyCode.Z) && _canRepair)
-        {
-            _defusing = 1f;
-            _repairTimer += Time.deltaTime;
-            if (_repairTimer > 2)
-            {
-                _repairTimer = 0;
-                // increase health for vehicle
-                VehicleScript.S.RepairVehicle();
-
-            }
-        }
-        else
-        {
+            _defuseTimer = 0;
             _repairTimer = 0;
             _defusing = 0f;
         }
