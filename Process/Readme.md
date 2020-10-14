@@ -8,3 +8,9 @@ This SHMUP remix is themed as a rescue operation for a bomb squad. A soldier acc
 
 In this first commit, we made a simple SHMUP game by starting from the Breakout project, and modifying things on that project to make it work like a SHMUP, where we have enemies that shoot, and a player that can move and shoot enemies.
 
+## 10.07.2020
+
+So far I've got the basic enemy spawning, shooting and gameplay working. The enemies are currently moving in the direction of the player, and the player's animations are working for walking, standing. While play testing, I realised that the game currently is not as challenging, as the bomb squad takes care of defusing and the player only needs to shoot. So I plan on changing this so that the player has to do everything - defusing the bomb, shooting enemies, healing themselves, etc. Another idea I want to try is introduce a barrier in the form of a vehicle or the like that helps the player get some time to defuse without worrying about getting shot. What would be interesting is to have the player repair this barrier if it gets damaged over time by taking in bullets.
+
+
+
