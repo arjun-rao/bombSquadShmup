@@ -30,7 +30,7 @@ public class VehicleScript : MonoBehaviour
     {
         Vector2 position = transform.position;
         Vector2 targetPosition = new Vector2(8, position.y);
-        //position = Vector2.MoveTowards(position, targetPosition, speed * Time.deltaTime);
+        position = Vector2.MoveTowards(position, targetPosition, speed * Time.deltaTime);
         transform.position = position;
         dist = position - lastUpdatePos;
         currentSpeed = dist.magnitude / Time.deltaTime;

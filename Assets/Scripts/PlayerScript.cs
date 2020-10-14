@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour {
     private float _walking, _defusing;
     private bool _canDefuse = false, _canHeal = false, _canRepair = false;
     private float _defuseTimer = 0, _healTimer = 0, _repairTimer = 0;
-
+    public AudioSource shootSound;
     public static PlayerScript S;
     
     private void Awake()
@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetKeyDown(fireKey))
         {
             Instantiate(this.projectile, firePoint.position, Quaternion.identity);
-            
+            shootSound.Play();
         }
         
     }
